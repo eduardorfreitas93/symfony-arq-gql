@@ -1,0 +1,37 @@
+Mutation:
+    type: object
+    config:
+        fields:
+            registerExample:
+                type: Boolean
+                args:
+                    name:
+                        type: String!
+                    nuId:
+                        type: Int!
+                resolve: >
+                    @=service("tactician.commandbus.default")
+                        .handle(
+                            newObject("App\\Service\\Example\\Command\\ExampleCommand", [
+                                args["name"],
+                                args["nuId"]
+                            ])
+                        )
+            registerUser:
+                type: Boolean
+                args:
+                    name:
+                        type: String!
+                    email:
+                        type: String!
+                    password:
+                        type: String!
+                resolve: >
+                    @=service("tactician.commandbus.default")
+                        .handle(
+                            newObject("App\\Service\\User\\Command\\CreateUserCommand", [
+                                args["name"],
+                                args["email"],
+                                args["password"]
+                            ])
+                        )

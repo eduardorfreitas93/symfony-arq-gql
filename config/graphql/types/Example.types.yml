@@ -1,0 +1,12 @@
+Example:
+  type: object
+  config:
+    description: "Example"
+    fields:
+      name:
+        type: String!
+        description: "nome"
+      nuId:
+        type: Int!
+        description: "nuId"
+        access: "@=hasAnyRole(['ROLE_USER', 'ROLE_ADMIN'])"

@@ -1,0 +1,22 @@
+Query:
+    type: object
+    config:
+        fields:
+            example:
+                type: "[Example]"
+                args:
+                    name:
+                        description: "Tipo do calendário: fotos ou inspeção."
+                        type: "String"
+                    nuId:
+                        description: "ID da propriedade em caso de calendário de visita."
+                        type: "Int"
+                resolve: '@=service("App\\Repository\\ExampleRepository").UserRepository()'
+            user:
+                type: "User"
+                access: "@=getUser()"
+                args:
+                    id:
+                        description: "ID do usuário."
+                        type: "Int"
+                resolve: '@=service("App\\Repository\\UserRepository").find(args["id"])'

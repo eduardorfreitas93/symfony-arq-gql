@@ -1,0 +1,9 @@
+###> symfony/framework-bundle ###
+.env
+/.idea/
+/public/bundles/
+/public/uploads/
+/var/
+/vendor/
+/config/jwt
+###< symfony/framework-bundle ###
